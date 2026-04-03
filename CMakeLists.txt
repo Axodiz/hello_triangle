@@ -11,10 +11,12 @@ project(${projectName})
 add_subdirectory(external/glfw)
 add_subdirectory(external/glad)
 add_subdirectory(external/glm)
+add_subdirectory(external/stb_image)
 
 
 set(SOURCES
 	src/shader.cpp
+	src/camera.cpp
 	src/main.cpp
 )
 
@@ -34,6 +36,7 @@ target_link_libraries(${appName}
 		glfw
 		glad
 		glm
+		stb_image
 )
 
 target_include_directories(${appName}
