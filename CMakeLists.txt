@@ -43,6 +43,7 @@ target_include_directories(${appName}
    	PRIVATE
    		include
 		shaders
+		textures
 )
 
 add_custom_command(TARGET ${appName} POST_BUILD
@@ -50,4 +51,11 @@ add_custom_command(TARGET ${appName} POST_BUILD
 		${CMAKE_SOURCE_DIR}/shaders
 		$<TARGET_FILE_DIR:${appName}>/shaders
 	COMMENT "Copying shaders to build directory"
+)
+
+add_custom_command(TARGET ${appName} POST_BUILD
+	COMMAND ${CMAKE_COMMAND} -E copy_directory
+		${CMAKE_SOURCE_DIR}/textures
+		$<TARGET_FILE_DIR:${appName}>/textures
+	COMMENT "Copying textures to build directory"
 )
